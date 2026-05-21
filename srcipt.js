@@ -4,13 +4,13 @@ const songs = [
 	{
 		name: "Off My Face",
 		file: "Justin_Bieber_-_Off_My_Face_Live_from_Paris_48KBPS.wav",
-		image: "Justin_Bieber_in_2015.jpg",
+		image: "./Justin_Bieber_in_2015.jpg",
 	},
 
 	{
 		name: "Bloody Mary",
 		file: "Lady_Gaga_-_Bloody_Mary_Official_Audio_256kbps.wav",
-		image: "download.webp",
+		image: "./download.webp",
 	},
 ];
 
