@@ -54,3 +54,28 @@ button:active {
 	font-size: 18px;
 	font-weight: bold;
 }
+
+#cover {
+	width: 220px;
+	height: 220px;
+	object-fit: cover;
+	border-radius: 50%;
+	margin: 20px 0;
+
+	/* borde bonito */
+	border: 6px solid white;
+	box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+
+	/* animación */
+	animation: rotate 6s linear infinite;
+}
+
+/* rotación */
+@keyframes rotate {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
