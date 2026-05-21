@@ -1,9 +1,17 @@
 // script.js
 
 const songs = [
-	"Justin_Bieber_-_Off_My_Face_Live_from_Paris_48KBPS.wav",
-	"Lady_Gaga_-_Bloody_Mary_Official_Audio_256kbps.wav",
-	"song3.wav",
+	{
+		name: "Off My Face",
+		file: "Justin_Bieber_-_Off_My_Face_Live_from_Paris_48KBPS.wav",
+		image: "Justin_Bieber_in_2015.jpg",
+	},
+
+	{
+		name: "Bloody Mary",
+		file: "Lady_Gaga_-_Bloody_Mary_Official_Audio_256kbps.wav",
+		image: "download.webp",
+	},
 ];
 
 let current = 0;
@@ -14,9 +22,18 @@ const songName = document.getElementById("songName");
 // Cargar canción inicial
 loadSong();
 
+const player = document.getElementById("player");
+const songName = document.getElementById("songName");
+const cover = document.getElementById("cover");
+
+let current = 0;
+
 function loadSong() {
-	player.src = songs[current];
-	songName.textContent = "Playing: " + songs[current];
+	player.src = songs[current].file;
+
+	songName.textContent = songs[current].name;
+
+	cover.src = songs[current].image;
 }
 
 function playSong() {
