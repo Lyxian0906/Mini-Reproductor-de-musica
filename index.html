@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Music Player</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+
+	<body>
+		<div class="container">
+			<h2>🎵 Music Player</h2>
+			<h2>Alba Manzano</h2>
+
+			<p id="songName"></p>
+
+			<audio id="player"></audio>
+
+			<button onclick="previous()">⏮ Previous</button>
+			<button onclick="playSong()">▶ Play</button>
+			<button onclick="stopSong()">⏸ Stop</button>
+			<button onclick="restart()">🔄 Restart</button>
+			<button onclick="next()">⏭ Next</button>
+
+			<br /><br />
+
+			<button onclick="volUp()">🔊 Volume Up</button>
+			<button onclick="volDown()">🔉 Volume Down</button>
+		</div>
+
+		<script src="srcipt.js"></script>
+	</body>
+</html>
