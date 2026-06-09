@@ -14,7 +14,7 @@ const songs = [
 	{
 		name: "Bloody Mary",
 		file: "LadyGaga/Lady_Gaga_-_Bloody_Mary_Official_Audio_256kbps.wav",
-		image: "Phootos/download.webp",
+		image: "Photoos/download.webp",
 		artist: "ladygaga",
 		background: "https://ichef.bbci.co.uk/news/1024/cpsprodpb/197d/live/62057290-fa95-11ef-a24f-f97f794e18ea.jpg.webp",
 		logo: "https://upload.wikimedia.org/wikipedia/commons/5/53/Lady_Gaga_-_ARTPOP_logo.png",
