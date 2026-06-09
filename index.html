@@ -3,18 +3,51 @@
 	<head>
 		<meta charset="UTF-8" />
 		<title>Music Player</title>
+
+		<!-- FIXED: Added fonts. to the URLs so Google can load the font style -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap"
+			rel="stylesheet"
+		/>
+
+		<!-- Your stylesheet links -->
 		<link rel="stylesheet" href="style.css" />
 	</head>
 
 	<body>
-		<div class="container">
-			<h2>🎵 Music Player</h2>
+		<div class="container" id="playerContainer">
+			<h2>Music Player</h2>
 			<h2>Lyxian</h2>
+			<img id="logo" class="corner-img"/>
 
 			<img id="cover" src="" alt="cover" />
 			<p id="songName"></p>
 
 			<audio id="player"></audio>
+
+			<div class="sidebar" id="sidebar">
+				<button class="closeBtn" onclick="toggleMenu()">✖</button>
+				<h3>Artistas</h3>
+
+				<button onclick="showSongs('justin')">Justin Bieber</button>
+				<button onclick="showSongs('ladygaga')">Lady Gaga</button>
+				<button onclick="showSongs('zelda')">Zelda</button>
+
+				<hr />
+
+				<div id="songsList"></div>
+			</div>
+
+			<button class="toggle" onclick="toggleMenu()">☰</button>
+			<div class="contenedor-barra">
+				<input type="range" id="barra" min="0" value="0" />
+			</div>
+			<div class="tiempos">
+				<span id="actual">0:00</span>
+				<span id="restante">-0:00</span>
+			</div>
 
 			<button onclick="previous()">⏮ Previous</button>
 			<button onclick="playSong()">▶ Play</button>
@@ -26,6 +59,7 @@
 
 			<button onclick="volUp()">🔊 Volume Up</button>
 			<button onclick="volDown()">🔉 Volume Down</button>
+			<button onclick="mute()">🔉 Mute</button>
 		</div>
 
 		<script src="srcipt.js"></script>

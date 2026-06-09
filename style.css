@@ -1,5 +1,6 @@
 /* style.css */
-html, body {
+html,
+body {
 	margin: 0;
 	padding: 0;
 	height: 100%;
@@ -7,8 +8,8 @@ html, body {
 
 body {
 	font-family: Arial, sans-serif;
-	background: linear-gradient(135deg, #1e1e2f, #3a3a5f);
-	color: white;
+	background: linear-gradient(135deg, #ffffff, #eff689);
+	color: hwb(48 0% 5%);
 	text-align: center;
 	padding: 40px;
 	margin: 0;
@@ -24,19 +25,50 @@ h2 {
 }
 
 .container {
-	background: rgba(255, 255, 255, 0.1);
-	padding: 30px;
-	border-radius: 20px;
-	width: 400px;
-	margin: auto;
-	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-	backdrop-filter: blur(10px);
+    font-family: 'Hylia Serif', serif;
+    text-transform: uppercase; /* Forces all capitals */
+	letter-spacing: 0.18em; /* Pushes letters slightly apart */
+	font-size: 20px;
+	font-weight: normal;
+    padding: 30px;
+    border-radius: 20px;
+    width: 500px;
+	height: 800px;
+    margin: auto;
+	
+    
+    /* Background Image Settings */
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* FIXED: Changed to stretch completely inside your 400px player container */
+    background-size: 120% 120%; 
+    
+    /* Glow styling */
+    box-shadow: 0 8px 50px rgb(161, 158, 0);
+    backdrop-filter: blur(10px);
+    
+    /* Text Color so you can read the letters over the dark background */
+    color: rgb(241, 241, 133); 
+}
+
+.container #songName {
+	color: hsl(0, 0%, 100%);
+	font-size: 40px;
+	font-family: 'Hylia Serif', serif;
+    text-transform: uppercase; /* Forces all capitals */
+	letter-spacing: 0.2em; /* Pushes letters slightly apart */
+	color: rgb(255, 251, 226); /* Hylian Gold */
+	text-shadow: 2px 2px 5px rgb(77, 77, 77); /* Dark shadow so it's readable over images */
 }
 
 button {
-	background: #ff4b7d;
+	background: #5464f4;
 	border: none;
-	color: white;
+	color: rgb(242, 194, 0);
+	font-family: 'Cinzel', 'Times New Roman', serif !important;
+	text-transform: uppercase; /* Forces all capitals */
 	padding: 12px 18px;
 	margin: 8px;
 	border-radius: 12px;
@@ -46,7 +78,7 @@ button {
 }
 
 button:hover {
-	background: #ff77a0;
+	background: #5c7c87;
 	transform: scale(1.05);
 }
 
@@ -85,3 +117,140 @@ button:active {
 	}
 }
 
+.contenedor-barra {
+	width: 400px;
+	margin: 20px;
+}
+
+#barra {
+	width: 100%;
+	height: 8px;
+	appearance: none;
+	background: #444;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+/* Parte móvil */
+#barra::-webkit-slider-thumb {
+	appearance: none;
+	width: 22px;
+	height: 22px;
+	background: url("https://static.wikia.nocookie.net/zelda/images/a/ac/Navi.png/revision/latest?cb=20101120152438&path-prefix=es");
+	background-size: cover;
+	border: none;
+	cursor: pointer;
+	transition: transform 0.2s ease;
+}
+
+#barra::-moz-range-thumb {
+	width: 22px;
+	height: 22px;
+	background: url("https://static.wikia.nocookie.net/zelda/images/a/ac/Navi.png/revision/latest?cb=20101120152438&path-prefix=es");
+	background-size: cover;
+	border: none;
+	cursor: pointer;
+	transition: transform 0.2s ease;
+}
+/* efecto hover */
+#barra::-webkit-slider-thumb:hover {
+	transform: scale(1.2);
+}
+
+/* tiempos */
+.tiempos {
+	display: flex;
+	justify-content: space-between;
+	font-family: Arial;
+	font-size: 12px;
+	color: #aaa;
+}
+
+.corner-img {
+	position: fixed; /* stays on screen even when scrolling */
+	top: 0;
+	right: 0;
+
+	width: 80px; /* adjust size */
+	height: auto;
+
+	margin: 10px; /* space from edges */
+}
+
+.corner-img {
+	width: 80px;
+	height: auto;
+	position: fixed;
+	top: 0;
+	right: 0;
+	margin: 10px;
+
+	transition: transform 0.6s ease;
+}
+
+.corner-img:hover {
+	transform: rotate(360deg);
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 90.5vh;
+    background: #111;
+    padding: 15px;
+
+    transform: translateX(-180%); /* más seguro */
+    transition: transform 0.3s ease;
+    z-index: 9999;
+}
+
+.sidebar.open {
+    transform: translateX(0);
+}
+
+.sidebar button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    background: #222;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.sidebar button:hover {
+    background: #1db954;
+}
+
+.toggle {
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    z-index: 1000;
+    padding: 10px;
+}
+
+.closeBtn {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+
+    display: block;
+    margin-left: auto; /* lo manda a la derecha */
+    margin-bottom: 10px;
+}
+
+.closeBtn:hover {
+    color: #1db954;
+}
+
+@font-face {
+    font-family: 'Hylia Serif';
+    src: url('/HyliaSerifBeta-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
