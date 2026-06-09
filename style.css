@@ -67,7 +67,7 @@ button {
 	background: #5464f4;
 	border: none;
 	color: rgb(242, 194, 0);
-	font-family: 'Cinzel', 'Times New Roman', serif !important;
+	font-family: 'Hylia Serif', serif;
 	text-transform: uppercase; /* Forces all capitals */
 	padding: 12px 18px;
 	margin: 8px;
@@ -201,7 +201,7 @@ button:active {
     background: #111;
     padding: 15px;
 
-    transform: translateX(-180%); /* más seguro */
+    transform: translateX(-390%); /* más seguro */
     transition: transform 0.3s ease;
     z-index: 9999;
 }
