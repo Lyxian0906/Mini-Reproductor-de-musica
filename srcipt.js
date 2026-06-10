@@ -131,9 +131,9 @@ function formatearTiempo(segundos) {
 
 // actualizar barra visual
 function updateBar() {
-	const percent = player.currentTime / player.duration || 0 * 100;
+    const percent = ((player.currentTime / player.duration) || 0) * 100;
 
-	barra.style.background = `linear-gradient(to right,
+    barra.style.background = `linear-gradient(to right,
         #1db954 0%,
         #1db954 ${percent}%,
         #444 ${percent}%,

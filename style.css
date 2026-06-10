@@ -197,7 +197,8 @@ button:active {
     top: 0;
     left: 0;
     width: 220px;
-    height: 90.5vh;
+    height: 90vh;
+    overflow-y: auto;
     background: #111;
     padding: 15px;
 
