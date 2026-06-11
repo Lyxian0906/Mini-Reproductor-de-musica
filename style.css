@@ -25,39 +25,38 @@ h2 {
 }
 
 .container {
-    font-family: 'Hylia Serif', serif;
-    text-transform: uppercase; /* Forces all capitals */
+	font-family: "Hylia Serif", serif;
+	text-transform: uppercase; /* Forces all capitals */
 	letter-spacing: 0.18em; /* Pushes letters slightly apart */
 	font-size: 20px;
 	font-weight: normal;
-    padding: 30px;
-    border-radius: 20px;
-    width: 500px;
+	padding: 30px;
+	border-radius: 20px;
+	width: 500px;
 	height: 800px;
-    margin: auto;
-	
-    
-    /* Background Image Settings */
-    
-    background-position: center;
-    background-repeat: no-repeat;
-    
-    /* FIXED: Changed to stretch completely inside your 400px player container */
-    background-size: 120% 120%; 
-    
-    /* Glow styling */
-    box-shadow: 0 8px 50px rgb(161, 158, 0);
-    backdrop-filter: blur(10px);
-    
-    /* Text Color so you can read the letters over the dark background */
-    color: rgb(241, 241, 133); 
+	margin: auto;
+
+	/* Background Image Settings */
+
+	background-position: center;
+	background-repeat: no-repeat;
+
+	/* FIXED: Changed to stretch completely inside your 400px player container */
+	background-size: 120% 120%;
+
+	/* Glow styling */
+	box-shadow: 0 8px 50px rgb(161, 158, 0);
+	backdrop-filter: blur(10px);
+
+	/* Text Color so you can read the letters over the dark background */
+	color: rgb(241, 241, 133);
 }
 
 .container #songName {
 	color: hsl(0, 0%, 100%);
 	font-size: 40px;
-	font-family: 'Hylia Serif', serif;
-    text-transform: uppercase; /* Forces all capitals */
+	font-family: "Hylia Serif", serif;
+	text-transform: uppercase; /* Forces all capitals */
 	letter-spacing: 0.2em; /* Pushes letters slightly apart */
 	color: rgb(255, 251, 226); /* Hylian Gold */
 	text-shadow: 2px 2px 5px rgb(77, 77, 77); /* Dark shadow so it's readable over images */
@@ -67,7 +66,7 @@ button {
 	background: #5464f4;
 	border: none;
 	color: rgb(242, 194, 0);
-	font-family: 'Hylia Serif', serif;
+	font-family: "Hylia Serif", serif;
 	text-transform: uppercase; /* Forces all capitals */
 	padding: 12px 18px;
 	margin: 8px;
@@ -193,65 +192,107 @@ button:active {
 }
 
 .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 220px;
-    height: 90vh;
-    overflow-y: auto;
-    background: #111;
-    padding: 15px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 220px;
+	height: 90vh;
+	overflow-y: auto;
+	background: #111;
+	padding: 15px;
 
-    transform: translateX(-390%); /* más seguro */
-    transition: transform 0.3s ease;
-    z-index: 9999;
+	transform: translateX(-390%); /* más seguro */
+	transition: transform 0.3s ease;
+	z-index: 9999;
 }
 
 .sidebar.open {
-    transform: translateX(0);
+	transform: translateX(0);
 }
 
 .sidebar button {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0;
-    background: #222;
-    border: none;
-    color: white;
-    cursor: pointer;
+	width: 100%;
+	padding: 10px;
+	margin: 5px 0;
+	background: #222;
+	border: none;
+	color: white;
+	cursor: pointer;
 }
 
 .sidebar button:hover {
-    background: #1db954;
+	background: #1db954;
 }
 
 .toggle {
-    position: fixed;
-    left: 10px;
-    top: 10px;
-    z-index: 1000;
-    padding: 10px;
+	position: fixed;
+	left: 10px;
+	top: 10px;
+	z-index: 1000;
+	padding: 10px;
 }
 
 .closeBtn {
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 22px;
-    cursor: pointer;
+	background: transparent;
+	border: none;
+	color: white;
+	font-size: 22px;
+	cursor: pointer;
 
-    display: block;
-    margin-left: auto; /* lo manda a la derecha */
-    margin-bottom: 10px;
+	display: block;
+	margin-left: auto; /* lo manda a la derecha */
+	margin-bottom: 10px;
 }
 
 .closeBtn:hover {
-    color: #1db954;
+	color: #1db954;
 }
 
 @font-face {
-    font-family: 'Hylia Serif';
-    src: url('/HyliaSerifBeta-Regular.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
+	font-family: "Hylia Serif";
+	src: url("/HyliaSerifBeta-Regular.otf") format("opentype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+.lyrics {
+	position: absolute;
+	top: 7%;
+	left: 70%;
+	transform: translate(0%, -1%);
+	font-family: "Hylia Serif", serif;
+	text-transform: uppercase; /* Forces all capitals */
+	letter-spacing: 0.18em; /* Pushes letters slightly apart */
+	font-size: 20px;
+	font-weight: normal;
+	padding: 30px;
+	border-radius: 20px;
+	width: 300px;
+	height: 800px;
+	margin: auto;
+
+	/* Background Image Settings */
+
+	background-position: center;
+	background-repeat: no-repeat;
+
+	/* FIXED: Changed to stretch completely inside your 400px player container */
+	background-size: 120% 120%;
+
+	/* Glow styling */
+	box-shadow: 0 8px 50px rgb(161, 158, 0);
+	backdrop-filter: blur(10px);
+
+	/* Text Color so you can read the letters over the dark background */
+	color: rgb(241, 241, 133);
+}
+
+.lyrics #lettersL {
+	color: hsl(0, 0%, 100%);
+	font-size: 40px;
+	font-family: "Hylia Serif", serif;
+	text-transform: uppercase; /* Forces all capitals */
+	letter-spacing: 0.2em; /* Pushes letters slightly apart */
+	color: rgb(255, 251, 226); /* Hylian Gold */
+	text-shadow: 2px 2px 5px rgb(77, 77, 77); /* Dark shadow so it's readable over images */
 }

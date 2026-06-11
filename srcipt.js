@@ -7,8 +7,8 @@ const songs = [
 		image: "Photoos/Justin_Bieber_in_2015.jpg",
 		artist: "justin",
 		background: "Photoos/20e0b398e970-gettyimages-2263415244.webp",
-		logo: "https://1000marcas.net/wp-content/uploads/2021/12/Justin-Bieber-logo.png"
-
+		logo: "https://1000marcas.net/wp-content/uploads/2021/12/Justin-Bieber-logo.png",
+		lyricsPdf: "Lyrics/offmyface.txt"
 	},
 
 	{
@@ -16,9 +16,11 @@ const songs = [
 		file: "LadyGaga/Lady_Gaga_-_Bloody_Mary_Official_Audio_256kbps.wav",
 		image: "Photoos/download.webp",
 		artist: "ladygaga",
-		background: "https://ichef.bbci.co.uk/news/1024/cpsprodpb/197d/live/62057290-fa95-11ef-a24f-f97f794e18ea.jpg.webp",
+		background:
+			"https://ichef.bbci.co.uk/news/1024/cpsprodpb/197d/live/62057290-fa95-11ef-a24f-f97f794e18ea.jpg.webp",
 		logo: "https://upload.wikimedia.org/wikipedia/commons/5/53/Lady_Gaga_-_ARTPOP_logo.png",
-		hoverSound: "sounds/zelda-hover.mp3"
+		hoverSound: "sounds/zelda-hover.mp3",
+		lyricsPdf: "Lyrics/offmyface.txt"
 	},
 
 	{
@@ -28,7 +30,8 @@ const songs = [
 		artist: "zelda",
 		background: "Photoos/midna_imp.jpg",
 		logo: "https://static.wikia.nocookie.net/zelda_gamepedia_en/images/9/9c/TLoZ_Series_Triforce_Artwork.png/revision/latest?cb=20190214050338",
-		hoverSound: "Zelda's Sound/2-33 Wolf Song 1 - Song of Healing (Duo).wav"
+		hoverSound: "Zelda's Sound/2-33 Wolf Song 1 - Song of Healing (Duo).wav",
+		lyricsPdf: "offmyface.txt"
 	},
 
 	{
@@ -38,10 +41,11 @@ const songs = [
 		artist: "zelda",
 		background: "Photoos/midna_imp.jpg",
 		logo: "https://static.wikia.nocookie.net/zelda_gamepedia_en/images/9/9c/TLoZ_Series_Triforce_Artwork.png/revision/latest?cb=20190214050338",
-		hoverSound: "Zelda's Sound/2-33 Wolf Song 1 - Song of Healing (Duo).wav"
+		hoverSound: "Zelda's Sound/2-33 Wolf Song 1 - Song of Healing (Duo).wav",
+		lyricsPdf: "offmyface.txt"
 	},
-
 ];
+
 
 let current = 0;
 
@@ -49,6 +53,7 @@ let current = 0;
 
 const player = document.getElementById("player");
 const songName = document.getElementById("songName");
+const lyricsPdf = document.getElementById("lyricsPdf");
 const cover = document.getElementById("cover");
 const container = document.getElementById("playerContainer");
 const logo = document.getElementById("logo");
@@ -57,29 +62,45 @@ const sound = songs[current].hoverSound || "Zelda's Sound\link_hyah.wav.wav";
 
 function loadSong() {
 	player.src = songs[current].file;
-
 	songName.textContent = songs[current].name;
-
-	cover.src = songs[current].image;
 	
+	cover.src = songs[current].image;
+
 	container.style.backgroundImage = `url('${songs[current].background}')`;
 	logo.src = songs[current].logo;
 	hoverAudio.src = songs[current].hoverSound;
+
+	showLyrics();
 }
 
 let canPlay = true;
 
-logo.addEventListener("mouseenter", () => {
-    const sound = songs[current].hoverSound;
-    if (!sound) return;
+function showLyrics() {
+  const pdf = songs[current]?.lyricsPdf;
 
-    hoverAudio.src = sound;
-    hoverAudio.currentTime = 0;
-    hoverAudio.play();
+  const viewer = document.getElementById("pdfViewer");
+
+  if (!pdf) {
+    console.warn("No lyrics PDF for this song");
+    viewer.src = "";
+    return;
+  }
+
+  viewer.src = pdf;
+}
+
+logo.addEventListener("mouseenter", () => {
+	const sound = songs[current].hoverSound;
+	if (!sound) return;
+
+	hoverAudio.src = sound;
+	hoverAudio.currentTime = 0;
+	hoverAudio.play();
 });
 
+
 logo.addEventListener("mouseleave", () => {
-    hoverAudio.pause(); // opcional
+	hoverAudio.pause(); // opcional
 });
 
 function playSong() {
@@ -131,9 +152,9 @@ function formatearTiempo(segundos) {
 
 // actualizar barra visual
 function updateBar() {
-    const percent = ((player.currentTime / player.duration) || 0) * 100;
+	const percent = (player.currentTime / player.duration || 0) * 100;
 
-    barra.style.background = `linear-gradient(to right,
+	barra.style.background = `linear-gradient(to right,
         #1db954 0%,
         #1db954 ${percent}%,
         #444 ${percent}%,
