@@ -104,7 +104,9 @@ logo.addEventListener("mouseleave", () => {
 });
 
 function playSong() {
+	player.volume = 0.1; //need to find other way to fix this
 	player.play();
+	
 }
 
 function stopSong() {
