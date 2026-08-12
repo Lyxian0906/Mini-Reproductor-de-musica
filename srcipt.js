@@ -70,6 +70,9 @@ function loadSong() {
 	logo.src = songs[current].logo;
 	hoverAudio.src = songs[current].hoverSound;
 
+	// Switch the whole page to that artist's chill color theme
+	document.body.className = "theme-" + songs[current].artist;
+
 	showLyrics();
 }
 
@@ -155,12 +158,15 @@ function formatearTiempo(segundos) {
 // actualizar barra visual
 function updateBar() {
 	const percent = (player.currentTime / player.duration || 0) * 100;
+	const accent =
+		getComputedStyle(document.body).getPropertyValue("--accent").trim() ||
+		"#8b9bc1";
 
 	barra.style.background = `linear-gradient(to right,
-        #1db954 0%,
-        #1db954 ${percent}%,
-        #444 ${percent}%,
-        #444 100%)`;
+        ${accent} 0%,
+        ${accent} ${percent}%,
+        rgba(0, 0, 0, 0.15) ${percent}%,
+        rgba(0, 0, 0, 0.15) 100%)`;
 }
 
 player.addEventListener("loadedmetadata", () => {
