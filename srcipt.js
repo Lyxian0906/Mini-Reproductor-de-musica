@@ -52,13 +52,13 @@ let current = 0;
 // Cargar canción inicial
 
 const player = document.getElementById("player");
+player.volume = 0.1; // low default volume so next()/previous() are never at full blast
 const songName = document.getElementById("songName");
 const lyricsPdf = document.getElementById("lyricsPdf");
 const cover = document.getElementById("cover");
 const container = document.getElementById("playerContainer");
 const logo = document.getElementById("logo");
 const hoverAudio = new Audio();
-const sound = songs[current].hoverSound || "Zelda's Sound\link_hyah.wav.wav";
 
 function loadSong() {
 	player.src = songs[current].file;
@@ -68,7 +68,12 @@ function loadSong() {
 
 	container.style.backgroundImage = `url('${songs[current].background}')`;
 	logo.src = songs[current].logo;
-	hoverAudio.src = songs[current].hoverSound;
+
+	if (songs[current].hoverSound) {
+		hoverAudio.src = songs[current].hoverSound;
+	} else {
+		hoverAudio.removeAttribute("src");
+	}
 
 	// Switch the whole page to that artist's chill color theme
 	document.body.className = "theme-" + songs[current].artist;
@@ -98,7 +103,7 @@ logo.addEventListener("mouseenter", () => {
 
 	hoverAudio.src = sound;
 	hoverAudio.currentTime = 0;
-	hoverAudio.play();
+	hoverAudio.play().catch(() => {}); // ignore "aborted by user" if mouse leaves fast
 });
 
 
